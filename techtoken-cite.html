@@ -8,15 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0F172A; /* Slate 900 */
             color: #E2E8F0; /* Slate 200 */
         }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
         .gradient-text {
-            background: linear-gradient(to right, #38BDF8, #6366F1);
+            background: linear-gradient(to right, #38BDF8, #818CF8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -34,6 +37,17 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 200px; /* Adjust as needed */
+        }
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="w-full">
@@ -42,13 +56,23 @@
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="#hero" class="text-2xl font-bold tracking-wider gradient-text">TECHTOKEN</a>
+                <a href="#hero" class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-sky-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.5C14.1217 2.5 16.1566 3.36919 17.6569 4.86942C19.1571 6.36964 20 8.40456 20 10.5C20 12.5954 19.1571 14.6304 17.6569 16.1306C16.1566 17.6308 14.1217 18.5 12 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4.34315 4.86942C5.84337 3.36919 7.87829 2.5 10 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 18.5C9.87829 18.5 7.84337 17.6308 6.34315 16.1306C4.84292 14.6304 4 12.5954 4 10.5C4 8.40456 4.84292 6.36964 6.34315 4.86942" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M17.6569 4.86942L12 10.5" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M4.5 14H9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 11.5V16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-2xl font-bold tracking-wider text-white">TECHTOKEN</span>
+                </a>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#problem" class="text-slate-300 hover:text-sky-400 transition">Sorun</a>
-                    <a href="#solution" class="text-slate-300 hover:text-sky-400 transition">Çözüm</a>
-                    <a href="#technology" class="text-slate-300 hover:text-sky-400 transition">Teknoloji</a>
-                    <a href="#success" class="text-slate-300 hover:text-sky-400 transition">Başarımız</a>
                     <a href="#about" class="text-slate-300 hover:text-sky-400 transition">Hakkımızda</a>
+                    <a href="#success" class="text-slate-300 hover:text-sky-400 transition">Başarımız</a>
+                    <a href="#services" class="text-slate-300 hover:text-sky-400 transition">Hizmetlerimiz</a>
+                    <a href="#problem" class="text-slate-300 hover:text-sky-400 transition">Problem</a>
+                    <a href="#faq" class="text-slate-300 hover:text-sky-400 transition">SSS</a>
                     <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition">İletişim</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden text-slate-200">
@@ -58,30 +82,125 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 backdrop-blur-sm">
-            <a href="#problem" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Sorun</a>
-            <a href="#solution" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Çözüm</a>
-            <a href="#technology" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Teknoloji</a>
-            <a href="#success" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Başarımız</a>
             <a href="#about" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Hakkımızda</a>
+            <a href="#success" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Başarımız</a>
+            <a href="#services" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Hizmetlerimiz</a>
+            <a href="#problem" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Problem</a>
+            <a href="#faq" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">SSS</a>
             <a href="#contact" class="block text-center py-4 px-4 bg-sky-500 text-white font-semibold hover:bg-sky-600 transition">İletişim</a>
         </div>
     </header>
 
     <main>
         <!-- HERO SECTION -->
-        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0F172A/E2E8F0?text=Modern+Teknoloji+Arka+Planı');">
-            <div class="absolute inset-0 bg-slate-900/70"></div>
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 scroll-reveal">
-                    Sağlığın Geleceğine <span class="gradient-text">Ses Verin.</span>
-                </h1>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-300 mb-8 scroll-reveal" style="transition-delay: 200ms;">
-                    Türkiye'nin hastane randevu sistemindeki 105 Milyar TL'lik verimsizliği sonlandıran yapay zeka devrimine liderlik ediyoruz.
-                </p>
-                <div class="scroll-reveal" style="transition-delay: 400ms;">
-                    <a href="#solution" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 inline-block">
-                        Çözümü Keşfedin
-                    </a>
+        <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+            <div class="absolute inset-0 bg-slate-900 opacity-80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 scroll-reveal">
+                            Sağlık Hizmetlerinde <span class="gradient-text">Verimliliği</span> Yeniden Tanımlıyoruz.
+                        </h1>
+                        <p class="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-slate-300 mb-8 scroll-reveal" style="transition-delay: 200ms;">
+                            Yapay zeka tabanlı sesli asistanımız ile hastane randevu sistemlerindeki 105 Milyar TL'lik verimsizliği ortadan kaldırıyoruz.
+                        </p>
+                        <div class="scroll-reveal" style="transition-delay: 400ms;">
+                            <a href="#services" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 inline-block">
+                                Hizmetlerimizi Keşfedin
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center mt-12 lg:mt-0 scroll-reveal" style="transition-delay: 200ms;">
+                         <!-- Phone Frame -->
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-2xl shadow-sky-500/10">
+                            <div class="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+                            <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                            <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                            <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                            <div class="rounded-[2rem] overflow-hidden w-full h-full bg-slate-900">
+                                <!-- App Screenshot -->
+                                <img src="/Users/enisba/Desktop/techtoken/image.png" class="w-full h-full object-cover" alt="Voice-AI Mobil Uygulama">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="py-20 lg:py-32 bg-slate-900/50">
+             <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Hakkımızda</h2>
+                    <p class="text-lg text-slate-300 mb-4">
+                        Biz, Hacettepe Üniversitesi Bilgisayar Mühendisliği öğrencilerinden oluşan, teknolojiye ve yeniliğe tutkulu bir ekibiz. Ankara merkezli girişimimizle, Türkiye'nin sağlık sektöründeki karmaşık sorunlara modern ve yerli çözümler üretmeyi hedefliyoruz.
+                    </p>
+                    <p class="text-lg text-slate-300">
+                        Vizyonumuz, yapay zekanın gücünü kullanarak sağlık hizmetlerini hem hastalar hem de kurumlar için daha verimli, erişilebilir ve güvenilir hale getirmektir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUCCESS SECTION -->
+        <section id="success" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="glass-card rounded-2xl overflow-hidden grid lg:grid-cols-2 items-center scroll-reveal">
+                    <div class="p-8 lg:p-12 order-2 lg:order-1">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Vizyonumuz Tescillendi</h2>
+                        <p class="text-lg text-slate-300 mb-6">Geliştirdiğimiz yenilikçi proje, Türkiye'nin en büyük teknoloji festivali olan Teknofest'te otoriteler tarafından tanındı ve ödüllendirildi.</p>
+                        <div class="bg-slate-700/50 p-6 rounded-lg">
+                            <p class="text-sm text-sky-400 font-bold tracking-wider">TEKNOFEST 2025</p>
+                            <p class="text-2xl font-bold text-white">Doğal Dil İşleme Yarışması İkincisi</p>
+                        </div>
+                    </div>
+                    <div class="h-64 lg:h-full order-1 lg:order-2">
+                        <img src="/Users/enisba/Desktop/techtoken/Ekran Resmi 2025-10-13 15.00.48.png" alt="Teknofest Başarısı" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="py-20 lg:py-32 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Hizmetlerimiz</h2>
+                    <p class="max-w-2xl mx-auto text-slate-400">Yapay zeka asistanımız Voice-AI'nin sunduğu çözümlerle sağlık yönetimini dönüştürüyoruz.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="glass-card p-8 rounded-2xl text-center scroll-reveal">
+                        <div class="mb-4 inline-block p-4 bg-slate-700/50 rounded-full text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Akıllı Tanı ve Yönlendirme</h3>
+                        <p class="text-slate-400">Hastanın şikayetlerini sesli olarak analiz ederek en doğru polikliniğe yönlendirir, gereksiz sevkleri önler.</p>
+                    </div>
+                     <!-- Service 2 -->
+                    <div class="glass-card p-8 rounded-2xl text-center scroll-reveal" style="transition-delay: 150ms;">
+                        <div class="mb-4 inline-block p-4 bg-slate-700/50 rounded-full text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">7/24 Otomatik Randevu</h3>
+                        <p class="text-slate-400">Çağrı merkezlerini otomatikleştirir, hastaların bekleme süresi olmadan günün her saati randevu almasını sağlar.</p>
+                    </div>
+                     <!-- Service 3 -->
+                    <div class="glass-card p-8 rounded-2xl text-center scroll-reveal" style="transition-delay: 300ms;">
+                        <div class="mb-4 inline-block p-4 bg-slate-700/50 rounded-full text-sky-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Verimlilik ve Raporlama</h3>
+                        <p class="text-slate-400">Kurumlar için randevu doluluk oranları, no-show istatistikleri ve performans verileri sunarak operasyonel verimliliği artırır.</p>
+                    </div>
+                     <!-- Service 4 -->
+                    <div class="glass-card p-8 rounded-2xl text-center scroll-reveal" style="transition-delay: 450ms;">
+                        <div class="mb-4 inline-block p-4 bg-slate-700/50 rounded-full text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Hasta Takip ve Hatırlatma</h3>
+                        <p class="text-slate-400">Akıllı hatırlatma ve takip ajanları ile randevuya gelinmeme (no-show) oranlarını önemli ölçüde düşürür.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -90,140 +209,79 @@
         <section id="problem" class="py-20 lg:py-32">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 scroll-reveal">
-                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Mevcut Sistemin Ağrı Noktaları</h2>
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Mevcut Sistemin Maliyeti</h2>
                     <p class="max-w-2xl mx-auto text-slate-400">Rakamlarla mevcut sistem: Milyarlarca liralık kayıp ve zaman israfı.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
                     <div class="glass-card p-8 rounded-2xl scroll-reveal">
-                        <div class="mb-4 text-sky-400">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1h-4zm-2 18h4v-1h-4v1zm-2-2h8v-1h-8v1zm-2-2h12v-1h-12v1z" /><path stroke-linecap="round" stroke-linejoin="round" d="M10 14a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M18 14a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M14 20a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">91,56 Milyar TL</h3>
-                        <p class="text-slate-400">Hastaların %30'unun randevularına gelmemesi nedeniyle oluşan yıllık **kapasite kaybı**.</p>
+                        <h3 class="text-4xl font-bold gradient-text mb-2">91,56 Milyar TL</h3>
+                        <p class="text-slate-300 font-semibold">Yıllık Kapasite Kaybı</p>
+                        <p class="text-slate-400 mt-2">Hastaların %30'unun randevularına gelmemesi nedeniyle oluşan maliyet.</p>
                     </div>
-                    <!-- Card 2 -->
                     <div class="glass-card p-8 rounded-2xl scroll-reveal" style="transition-delay: 200ms;">
-                        <div class="mb-4 text-sky-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">11,45 Milyar TL</h3>
-                        <p class="text-slate-400">Hastaların yanlış polikliniklere yönlendirilmesiyle ortaya çıkan **gereksiz sevk maliyeti**.</p>
+                        <h3 class="text-4xl font-bold gradient-text mb-2">11,45 Milyar TL</h3>
+                        <p class="text-slate-300 font-semibold">Gereksiz Sevk Maliyeti</p>
+                        <p class="text-slate-400 mt-2">Hastaların yanlış polikliniklere yönlendirilmesiyle ortaya çıkan kayıp.</p>
                     </div>
-                    <!-- Card 3 -->
                     <div class="glass-card p-8 rounded-2xl scroll-reveal" style="transition-delay: 400ms;">
-                         <div class="mb-4 text-sky-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.364a6.364 6.364 0 000-12.728" /></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">%38 Hasta Memnuniyetsizliği</h3>
-                        <p class="text-slate-400">Kullanıcıların mevcut randevu sistemini **yetersiz bulma** ve zaman kaybı yaşama oranı.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOLUTION SECTION -->
-        <section id="solution" class="py-20 lg:py-32 bg-slate-900/50">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="scroll-reveal">
-                        <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Çözüm: <span class="gradient-text">Voice-AI</span></h2>
-                        <p class="text-lg text-slate-300 mb-8">Geliştirdiğimiz Voice-AI, yapay zeka tabanlı ajan ağı teknolojisiyle bu sorunlara kökten bir çözüm getiriyor. Akıllı, sesli ve kesintisiz sağlık asistanınız.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Akıllı Tanı ve Doğru Yönlendirme</h4>
-                                    <p class="text-slate-400">Hastanın şikayetlerini sesli olarak analiz eder ve yapay zeka ile en doğru polikliniğe yönlendirir.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">7/24 Otomatik Randevu Yönetimi</h4>
-                                    <p class="text-slate-400">Hastane çağrı merkezlerini otomatikleştirerek hastaların beklemeden randevu almasını sağlar.</p>
-                                </div>
-                            </li>
-                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                                <div>
-                                    <h4 class="font-semibold text-white">Üst Düzey Hasta Deneyimi</h4>
-                                    <p class="text-slate-400">Bekleme sürelerini ortadan kaldırır ve doğru doktora ulaşımı hızlandırarak memnuniyeti artırır.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="flex justify-center items-center scroll-reveal" style="transition-delay: 200ms;">
-                        <!-- GÖRSEL: Buraya 9. sayfadaki telefon içindeki uygulama arayüzü görselini ekleyin -->
-                        <img src="https://placehold.co/400x800/1E293B/E2E8F0?text=Uygulama+Ekran+Görüntüsü" alt="Voice-AI Uygulama Arayüzü" class="rounded-3xl max-w-sm w-full shadow-2xl shadow-sky-500/10">
+                         <h3 class="text-4xl font-bold gradient-text mb-2">%38 Memnuniyetsizlik</h3>
+                         <p class="text-slate-300 font-semibold">Düşük Hasta Memnuniyeti</p>
+                         <p class="text-slate-400 mt-2">Kullanıcıların mevcut randevu sistemini yetersiz bulma oranı.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- TECHNOLOGY SECTION -->
-        <section id="technology" class="py-20 lg:py-32">
-            <div class="container mx-auto px-6 text-center">
-                 <div class="text-center mb-16 scroll-reveal">
-                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Güvenilir ve Akıllı Ajan Ağı Mimarisi</h2>
-                    <p class="max-w-3xl mx-auto text-slate-400">Sistemimiz, sürecin her adımında maksimum verimlilik ve doğruluk sağlayan entegre yapay zeka ajanlarından oluşur.</p>
-                </div>
-                <!-- GÖRSEL: Buraya 10. sayfadaki "Ajan Ağı Yapısı" şemasını ekleyin -->
-                <img src="https://placehold.co/1200x600/0F172A/E2E8F0?text=Ajan+Ağı+Yapısı+Diyagramı" alt="Ajan Ağı Mimarisi" class="mx-auto rounded-2xl shadow-lg scroll-reveal">
-            </div>
-        </section>
-        
-        <!-- SUCCESS SECTION -->
-        <section id="success" class="py-20 lg:py-32">
-            <div class="container mx-auto px-6">
-                <div class="glass-card rounded-2xl overflow-hidden grid lg:grid-cols-2 items-center scroll-reveal">
-                    <div class="p-8 lg:p-12">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Vizyonumuz Tescillendi</h2>
-                        <p class="text-lg text-slate-300 mb-6">Geliştirdiğimiz yenilikçi proje, Türkiye'nin en büyük teknoloji festivali olan Teknofest'te otoriteler tarafından tanındı ve ödüllendirildi.</p>
-                        <div class="bg-slate-700/50 p-6 rounded-lg">
-                            <p class="text-sm text-sky-400 font-bold tracking-wider">TEKNOFEST 2025</p>
-                            <p class="text-2xl font-bold text-white">Doğal Dil İşleme Yarışması İkincisi</p>
-                        </div>
-                    </div>
-                    <div class="h-64 lg:h-full">
-                         <!-- GÖRSEL: Buraya 4. sayfadaki Teknofest ödül görselini ekleyin -->
-                        <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Teknofest+Ödül+Görseli" alt="Teknofest Başarısı" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT US SECTION -->
-        <section id="about" class="py-20 lg:py-32 bg-slate-900/50">
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-20 lg:py-32 bg-slate-900/50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 scroll-reveal">
-                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Sağlığın Geleceğini Kodlayan Ekip</h2>
-                    <p class="max-w-3xl mx-auto text-slate-400">Ankara merkezli, Hacettepe Üniversitesi Bilgisayar Mühendisliği öğrencilerinden oluşan, teknolojiye ve yeniliğe tutkulu bir girişimiz.</p>
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Sıkça Sorulan Sorular</h2>
+                    <p class="max-w-2xl mx-auto text-slate-400">Aklınıza takılan soruların yanıtlarını burada bulabilirsiniz.</p>
                 </div>
-                <h3 class="text-2xl font-bold text-center text-white mb-10 scroll-reveal">Akademik ve Sektörel Güç: Danışmanlarımız</h3>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-                    <!-- Danışman 1 -->
-                    <div class="text-center scroll-reveal">
-                        <!-- GÖRSEL: Dr. Sercan Karakaş fotoğrafı -->
-                        <img src="https://placehold.co/150x150/1E293B/FFFFFF?text=S.K" alt="Dr. Sercan Karakaş" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700">
-                        <h4 class="text-xl font-bold text-white">Dr. Sercan Karakaş</h4>
-                        <p class="text-sky-400">OpenAI Ar-Ge Mühendisi</p>
-                        <p class="text-slate-400">University of Chicago Akademisyeni</p>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item glass-card rounded-lg overflow-hidden scroll-reveal">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-white">Voice-AI tam olarak nedir ve nasıl çalışır?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-slate-300">
+                                Voice-AI, yapay zeka tabanlı bir sesli asistandır. Hastaların sesli olarak anlattığı şikayetleri analiz eder, doğru polikliniği belirler ve 7/24 otomatik olarak randevu oluşturur. Bu süreç, hastanelerin çağrı merkezi yükünü hafifletir ve hastaların en hızlı şekilde doğru hizmete ulaşmasını sağlar.
+                            </p>
+                        </div>
                     </div>
-                    <!-- Danışman 2 -->
-                    <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
-                         <!-- GÖRSEL: Dr. Tuğba Gürgen Erdoğan fotoğrafı -->
-                        <img src="https://placehold.co/150x150/1E293B/FFFFFF?text=T.G.E" alt="Dr. Tuğba Gürgen Erdoğan" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700">
-                        <h4 class="text-xl font-bold text-white">Dr. Tuğba Gürgen Erdoğan</h4>
-                        <p class="text-sky-400">Dr. Öğr. Üyesi</p>
-                        <p class="text-slate-400">Hacettepe Üni. Bilgisayar Müh.</p>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item glass-card rounded-lg overflow-hidden scroll-reveal" style="transition-delay: 150ms;">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-white">Verilerimizin güvenliği nasıl sağlanıyor?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-slate-300">
+                                Veri güvenliği en büyük önceliğimizdir. Tüm veriler, Türkiye'de bulunan sunucularda Kişisel Verilerin Korunması Kanunu (KVKK) standartlarına uygun olarak şifrelenerek saklanır ve işlenir. Veri yönetimi ve erişim kontrolü tamamen bizim denetimimiz altındadır.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item glass-card rounded-lg overflow-hidden scroll-reveal" style="transition-delay: 300ms;">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-white">Bu sistem mevcut hastane sistemleriyle entegre olabiliyor mu?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-slate-300">
+                                Evet, sistemimiz esnek bir mimariye sahiptir ve mevcut Hastane Bilgi Yönetim Sistemleri (HBYS) ve ulusal randevu sistemleri (örn: MHRS) ile API'lar aracılığıyla tam entegrasyon sağlayacak şekilde tasarlanmıştır. Bu sayede kurumların mevcut altyapılarına sorunsuz bir şekilde adapte olur.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="py-20 lg:py-32">
+        <section id="contact" class="py-20 lg:py-32 bg-slate-900/50">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto scroll-reveal">
                     <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Geleceği Birlikte İnşa Edelim</h2>
@@ -239,9 +297,16 @@
 
     <!-- FOOTER -->
     <footer class="bg-slate-900/50 border-t border-slate-800">
-        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
-            <p>&copy; 2025 Techtoken. Tüm Hakları Saklıdır.</p>
-            <p class="text-sm mt-2">Ankara, Türkiye</p>
+        <div class="container mx-auto px-6 py-8 text-slate-400 flex flex-col sm:flex-row justify-between items-center">
+            <div class="mb-4 sm:mb-0">
+                <p>&copy; 2025 Techtoken. Tüm Hakları Saklıdır.</p>
+                <p class="text-sm mt-1">Ankara, Türkiye</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#about" class="hover:text-sky-400 transition">Hakkımızda</a>
+                <a href="#services" class="hover:text-sky-400 transition">Hizmetlerimiz</a>
+                <a href="#contact" class="hover:text-sky-400 transition">İletişim</a>
+            </div>
         </div>
     </footer>
 
@@ -254,7 +319,6 @@
                 mobileMenu.classList.toggle('hidden');
             });
             
-            // Close mobile menu on link click
             const mobileLinks = mobileMenu.getElementsByTagName('a');
             for(let link of mobileLinks) {
                 link.addEventListener('click', () => {
@@ -284,11 +348,26 @@
             }, {
                 threshold: 0.1
             });
-
             revealElements.forEach(el => {
                 observer.observe(el);
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    
+                    faqItems.forEach(i => i.classList.remove('open'));
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                    }
+                });
             });
         });
     </script>
 </body>
 </html>
+
