@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techtoken | Sağlıkta Yapay Zeka Devrimi</title>
+    <meta name="description" content="Türkiye'nin ilk ajan ağı tabanlı sesli tanı ve randevu sistemi. Milyarlarca liralık kaybı önleyen, hasta memnuniyetini artıran yerli yapay zeka çözümü.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* Slate 900 */
+            color: #E2E8F0; /* Slate 200 */
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38BDF8, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6); /* Slate 800 with opacity */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.5); /* Slate 700 with opacity */
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="w-full">
+
+    <!-- HEADER -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="text-2xl font-bold tracking-wider gradient-text">TECHTOKEN</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#problem" class="text-slate-300 hover:text-sky-400 transition">Sorun</a>
+                    <a href="#solution" class="text-slate-300 hover:text-sky-400 transition">Çözüm</a>
+                    <a href="#technology" class="text-slate-300 hover:text-sky-400 transition">Teknoloji</a>
+                    <a href="#success" class="text-slate-300 hover:text-sky-400 transition">Başarımız</a>
+                    <a href="#about" class="text-slate-300 hover:text-sky-400 transition">Hakkımızda</a>
+                    <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition">İletişim</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-slate-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 backdrop-blur-sm">
+            <a href="#problem" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Sorun</a>
+            <a href="#solution" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Çözüm</a>
+            <a href="#technology" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Teknoloji</a>
+            <a href="#success" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Başarımız</a>
+            <a href="#about" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Hakkımızda</a>
+            <a href="#contact" class="block text-center py-4 px-4 bg-sky-500 text-white font-semibold hover:bg-sky-600 transition">İletişim</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0F172A/E2E8F0?text=Modern+Teknoloji+Arka+Planı');">
+            <div class="absolute inset-0 bg-slate-900/70"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 scroll-reveal">
+                    Sağlığın Geleceğine <span class="gradient-text">Ses Verin.</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-300 mb-8 scroll-reveal" style="transition-delay: 200ms;">
+                    Türkiye'nin hastane randevu sistemindeki 105 Milyar TL'lik verimsizliği sonlandıran yapay zeka devrimine liderlik ediyoruz.
+                </p>
+                <div class="scroll-reveal" style="transition-delay: 400ms;">
+                    <a href="#solution" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 inline-block">
+                        Çözümü Keşfedin
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM SECTION -->
+        <section id="problem" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Mevcut Sistemin Ağrı Noktaları</h2>
+                    <p class="max-w-2xl mx-auto text-slate-400">Rakamlarla mevcut sistem: Milyarlarca liralık kayıp ve zaman israfı.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass-card p-8 rounded-2xl scroll-reveal">
+                        <div class="mb-4 text-sky-400">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1h-4zm-2 18h4v-1h-4v1zm-2-2h8v-1h-8v1zm-2-2h12v-1h-12v1z" /><path stroke-linecap="round" stroke-linejoin="round" d="M10 14a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M18 14a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M14 20a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">91,56 Milyar TL</h3>
+                        <p class="text-slate-400">Hastaların %30'unun randevularına gelmemesi nedeniyle oluşan yıllık **kapasite kaybı**.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card p-8 rounded-2xl scroll-reveal" style="transition-delay: 200ms;">
+                        <div class="mb-4 text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">11,45 Milyar TL</h3>
+                        <p class="text-slate-400">Hastaların yanlış polikliniklere yönlendirilmesiyle ortaya çıkan **gereksiz sevk maliyeti**.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card p-8 rounded-2xl scroll-reveal" style="transition-delay: 400ms;">
+                         <div class="mb-4 text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.364a6.364 6.364 0 000-12.728" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">%38 Hasta Memnuniyetsizliği</h3>
+                        <p class="text-slate-400">Kullanıcıların mevcut randevu sistemini **yetersiz bulma** ve zaman kaybı yaşama oranı.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION SECTION -->
+        <section id="solution" class="py-20 lg:py-32 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal">
+                        <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Çözüm: <span class="gradient-text">Voice-AI</span></h2>
+                        <p class="text-lg text-slate-300 mb-8">Geliştirdiğimiz Voice-AI, yapay zeka tabanlı ajan ağı teknolojisiyle bu sorunlara kökten bir çözüm getiriyor. Akıllı, sesli ve kesintisiz sağlık asistanınız.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">Akıllı Tanı ve Doğru Yönlendirme</h4>
+                                    <p class="text-slate-400">Hastanın şikayetlerini sesli olarak analiz eder ve yapay zeka ile en doğru polikliniğe yönlendirir.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">7/24 Otomatik Randevu Yönetimi</h4>
+                                    <p class="text-slate-400">Hastane çağrı merkezlerini otomatikleştirerek hastaların beklemeden randevu almasını sağlar.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                <div>
+                                    <h4 class="font-semibold text-white">Üst Düzey Hasta Deneyimi</h4>
+                                    <p class="text-slate-400">Bekleme sürelerini ortadan kaldırır ve doğru doktora ulaşımı hızlandırarak memnuniyeti artırır.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center scroll-reveal" style="transition-delay: 200ms;">
+                        <!-- GÖRSEL: Buraya 9. sayfadaki telefon içindeki uygulama arayüzü görselini ekleyin -->
+                        <img src="https://placehold.co/400x800/1E293B/E2E8F0?text=Uygulama+Ekran+Görüntüsü" alt="Voice-AI Uygulama Arayüzü" class="rounded-3xl max-w-sm w-full shadow-2xl shadow-sky-500/10">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- TECHNOLOGY SECTION -->
+        <section id="technology" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6 text-center">
+                 <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Güvenilir ve Akıllı Ajan Ağı Mimarisi</h2>
+                    <p class="max-w-3xl mx-auto text-slate-400">Sistemimiz, sürecin her adımında maksimum verimlilik ve doğruluk sağlayan entegre yapay zeka ajanlarından oluşur.</p>
+                </div>
+                <!-- GÖRSEL: Buraya 10. sayfadaki "Ajan Ağı Yapısı" şemasını ekleyin -->
+                <img src="https://placehold.co/1200x600/0F172A/E2E8F0?text=Ajan+Ağı+Yapısı+Diyagramı" alt="Ajan Ağı Mimarisi" class="mx-auto rounded-2xl shadow-lg scroll-reveal">
+            </div>
+        </section>
+        
+        <!-- SUCCESS SECTION -->
+        <section id="success" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="glass-card rounded-2xl overflow-hidden grid lg:grid-cols-2 items-center scroll-reveal">
+                    <div class="p-8 lg:p-12">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Vizyonumuz Tescillendi</h2>
+                        <p class="text-lg text-slate-300 mb-6">Geliştirdiğimiz yenilikçi proje, Türkiye'nin en büyük teknoloji festivali olan Teknofest'te otoriteler tarafından tanındı ve ödüllendirildi.</p>
+                        <div class="bg-slate-700/50 p-6 rounded-lg">
+                            <p class="text-sm text-sky-400 font-bold tracking-wider">TEKNOFEST 2025</p>
+                            <p class="text-2xl font-bold text-white">Doğal Dil İşleme Yarışması İkincisi</p>
+                        </div>
+                    </div>
+                    <div class="h-64 lg:h-full">
+                         <!-- GÖRSEL: Buraya 4. sayfadaki Teknofest ödül görselini ekleyin -->
+                        <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Teknofest+Ödül+Görseli" alt="Teknofest Başarısı" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="py-20 lg:py-32 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Sağlığın Geleceğini Kodlayan Ekip</h2>
+                    <p class="max-w-3xl mx-auto text-slate-400">Ankara merkezli, Hacettepe Üniversitesi Bilgisayar Mühendisliği öğrencilerinden oluşan, teknolojiye ve yeniliğe tutkulu bir girişimiz.</p>
+                </div>
+                <h3 class="text-2xl font-bold text-center text-white mb-10 scroll-reveal">Akademik ve Sektörel Güç: Danışmanlarımız</h3>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+                    <!-- Danışman 1 -->
+                    <div class="text-center scroll-reveal">
+                        <!-- GÖRSEL: Dr. Sercan Karakaş fotoğrafı -->
+                        <img src="https://placehold.co/150x150/1E293B/FFFFFF?text=S.K" alt="Dr. Sercan Karakaş" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700">
+                        <h4 class="text-xl font-bold text-white">Dr. Sercan Karakaş</h4>
+                        <p class="text-sky-400">OpenAI Ar-Ge Mühendisi</p>
+                        <p class="text-slate-400">University of Chicago Akademisyeni</p>
+                    </div>
+                    <!-- Danışman 2 -->
+                    <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
+                         <!-- GÖRSEL: Dr. Tuğba Gürgen Erdoğan fotoğrafı -->
+                        <img src="https://placehold.co/150x150/1E293B/FFFFFF?text=T.G.E" alt="Dr. Tuğba Gürgen Erdoğan" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700">
+                        <h4 class="text-xl font-bold text-white">Dr. Tuğba Gürgen Erdoğan</h4>
+                        <p class="text-sky-400">Dr. Öğr. Üyesi</p>
+                        <p class="text-slate-400">Hacettepe Üni. Bilgisayar Müh.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto scroll-reveal">
+                    <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">Geleceği Birlikte İnşa Edelim</h2>
+                    <p class="text-lg text-slate-400 mb-10">Hastanelerinizde verimliliği artırmak, maliyetleri düşürmek ve hasta memnuniyetinde çığır açmak için bizimle iletişime geçin.</p>
+                    <a href="mailto:iletisim@techtoken.online" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition-transform transform hover:scale-105 inline-block">
+                        Bize Ulaşın
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900/50 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2025 Techtoken. Tüm Hakları Saklıdır.</p>
+            <p class="text-sm mt-2">Ankara, Türkiye</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileLinks = mobileMenu.getElementsByTagName('a');
+            for(let link of mobileLinks) {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+
+            // Header background on scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+                } else {
+                    header.classList.remove('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+                }
+            });
+
+            // Scroll reveal animations
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
