@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr" class="scroll-smooth">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techtoken | Sağlıkta Yapay Zeka Devrimi</title>
@@ -38,11 +39,13 @@
             transform: translateY(0);
         }
         .faq-item .faq-answer {
+            display: none;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
         }
         .faq-item.open .faq-answer {
+            display: block;
             max-height: 200px; /* Adjust as needed */
         }
         .faq-item.open .faq-arrow {
@@ -81,7 +84,7 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 backdrop-blur-sm">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 backdrop-blur-sm mt-[68px]"> 
             <a href="#about" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Hakkımızda</a>
             <a href="#success" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Başarımız</a>
             <a href="#services" class="block text-center py-3 px-4 text-slate-200 hover:bg-slate-700 transition">Hizmetlerimiz</a>
